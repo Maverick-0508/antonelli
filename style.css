@@ -1,0 +1,953 @@
+/* Ensures dark, visible text for hero value cards (middle card fix) */
+.text-dark-ev {
+    color: #1a1a1a !important;
+}
+/* Highlighted value cards in hero section */
+.hero-value-card {
+    color: #1a1a1a !important;
+}
+/* --- Electric Cars Page Container Font & Spacing Tweaks --- */
+.electric-cars-main .container {
+    font-size: 1.08rem;
+    max-width: 950px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.electric-cars-main .govuk-heading-xl {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+}
+.electric-cars-main .govuk-heading-l {
+    font-size: 1.45rem;
+    margin-bottom: 0.8rem;
+}
+.electric-cars-main p,
+.electric-cars-main ul,
+.electric-cars-main li {
+    font-size: 1.01rem;
+    margin-bottom: 0.5rem;
+}
+.electric-cars-main .lead {
+    font-size: 1.13rem;
+    margin-bottom: 1.1rem;
+}
+.electric-cars-main .govuk-link-panel__link {
+    font-size: 1.01rem;
+}
+.electric-cars-main .row.g-4.mb-4 {
+    margin-bottom: 2rem !important;
+}
+.electric-cars-main .p-4 {
+    padding: 1.2rem !important;
+}
+.electric-cars-main img.img-fluid {
+    max-width: 95%;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+.electric-cars-main .govuk-link-panel__link {
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.electric-cars-main .govuk-link-panel__link:hover {
+    box-shadow: 0 0 0 3px #38ada9;
+    border-color: #38ada9;
+}
+.electric-cars-main .shadow-sm {
+    box-shadow: 0 2px 12px rgba(44,62,80,0.07) !important;
+}
+.electric-cars-main .bg-light {
+    background-color: #f8fafc !important;
+}
+.electric-cars-main .govuk-inset-text {
+    border-left: 5px solid #38ada9;
+    background: #eafaf7 !important;
+}
+.electric-cars-main .govuk-heading-m {
+    font-size: 1.13rem;
+}
+.electric-cars-main .placeholder-img {
+    background: #e0e7ef;
+    border: 1px solid #d1dbe8;
+    border-radius: 0.5rem;
+}
+.electric-cars-main .govuk-link {
+    color: #0a3d62;
+    font-weight: 600;
+    text-decoration: underline;
+}
+.electric-cars-main .govuk-link:hover {
+    color: #38ada9;
+    text-decoration: none;
+}
+.electric-cars-main .govuk-link-panel__link h3 {
+    color: #0a3d62;
+    font-weight: 700;
+}
+.electric-cars-main .govuk-link-panel__link p {
+    color: #555;
+}
+.electric-cars-main .govuk-link-panel__link {
+    border: 2px solid #e0e7ef;
+}
+.electric-cars-main .govuk-link-panel__link:focus {
+    outline: 2px solid #38ada9;
+    outline-offset: 2px;
+}
+.electric-cars-main .govuk-breadcrumbs {
+    font-size: 0.98rem;
+    margin-bottom: 1.1rem;
+}
+.electric-cars-main .govuk-breadcrumbs__list-item a {
+    color: #38ada9;
+    text-decoration: underline;
+}
+.electric-cars-main .govuk-breadcrumbs__list-item a:hover {
+    color: #0a3d62;
+}
+.electric-cars-main .govuk-inset-text {
+    font-size: 1.01rem;
+}
+.electric-cars-main .bg-white {
+    background: #fff !important;
+}
+.electric-cars-main .rounded {
+    border-radius: 0.7rem !important;
+}
+.electric-cars-main .main-footer {
+    font-size: 1rem;
+}
+.electric-cars-main .govuk-footer {
+    background: #22223b !important;
+    color: #fff !important;
+}
+.electric-cars-main .govuk-footer a {
+    color: #fff !important;
+    text-decoration: underline;
+}
+.electric-cars-main .govuk-footer a:hover {
+    color: #38ada9 !important;
+}
+/* --- EV Incentives Hero Banner Styles --- */
+.hero-banner {
+    background: linear-gradient(90deg, #0a3d62 60%, #38ada9 100%);
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #fff;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+.hero-banner .container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.hero-banner .display-4 {
+    letter-spacing: 1px;
+}
+.hero-img {
+    max-height: 160px;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.2));
+}
+.hero-accent {
+    width: 120px;
+    background: rgba(56,173,169,0.2);
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+}
+/* Basic Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Using a sleek font */
+    line-height: 1.7; /* Slightly more line-height for readability */
+    color: #2c3e50; /* Darker text for modern look */
+    background-color: #f5f8fa; /* Very light, cool background */
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px; /* Slightly more padding for a spacious feel */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Buttons */
+.cta-button, .primary-cta {
+    display: inline-block;
+    background-color: #3498db; /* A vibrant blue for CTAs */
+    color: #fff;
+    padding: 12px 25px; /* Slightly larger buttons */
+    border-radius: 50px; /* More rounded, modern button shape */
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cta-button:hover, .primary-cta:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* --- Header Section --- */
+.main-header {
+    background-color: #fff;
+    padding: 18px 0; /* Slightly less padding than before for a sleeker bar */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* More subtle shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex
+    align-centre= block center; /*vertically center the logo and text */
+}
+
+.logo-img {
+    font-weight: 700;
+    font-size: 3em; /* Slightly larger logo */
+    color: #4400aa; /* Dark logo text */
+    width: 50px; /* Set a fixed width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between logo and text */
+    transition: color 0.3s ease; /* Smooth color transition */
+    text-transform: uppercase; /* Modern touch */
+    letter-spacing: 0.5px; /* Slight letter spacing for a modern look */
+}
+.logo:hover {
+    color: #3498db; /* Hint of color on hover */
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 35px; /* More space between nav items */
+}
+
+.main-nav a {
+    color: #555;
+    font-weight: 600; /* Slightly bolder nav links */
+    font-size: 1.05em;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #3498db; /* Blue on hover */
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2.2em; /* Larger toggle icon */
+    cursor: pointer;
+    color: #2c3e50;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    /* Replace with a high-quality EV image or a abstract tech background */
+    background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('https://via.placeholder.com/1920x800/2980b9/ecf0f1?text=Electric+Vehicle+Charging+Station') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 550px; /* Taller hero section */
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-content h1 {
+    font-size: 4em; /* Larger, more impactful heading */
+    margin-bottom: 25px;
+    line-height: 1.1;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle shadow for readability */
+}
+
+.hero-content p {
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+/* --- General Section Styling --- */
+.section {
+    padding: 90px 0; /* More consistent vertical padding for sections */
+}
+
+.section:nth-child(even) {
+    background-color: #ecf0f1; /* Lighter alternating background */
+}
+
+h2 {
+    font-size: 3em; /* Larger section headings */
+    text-align: center;
+    margin-bottom: 70px;
+    color: #2c3e50;
+    position: relative;
+    padding-bottom: 10px; /* Space for underline effect */
+}
+
+h2::after { /* Simple underline effect for headings */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #3498db;
+    border-radius: 2px;
+}
+
+/* --- About Section (Content Grid) --- */
+.about-section .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px; /* More space between columns */
+    align-items: center;
+}
+
+.about-section .text-content p {
+    margin-bottom: 18px;
+    font-size: 1.15em;
+    color: #555;
+}
+
+.about-section .image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px; /* More rounded corners */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* More prominent shadow */
+}
+
+/* --- Charging Section (Features Grid) --- */
+.charging-section .features-grid { /* Renamed class for specificity */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px; /* More space between feature items */
+    text-align: center;
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 4px solid #3498db; /* Accent border */
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.feature-item h3 {
+    font-size: 1.7em;
+    margin-bottom: 18px;
+    color: #2c3e50;
+}
+
+.feature-item .icon {
+    font-size: 3em; /* Larger icons */
+    display: block;
+    margin-bottom: 20px;
+    color: #27ae60; /* Green accent for icons, signifying nature/power */
+}
+
+.feature-item p {
+    color: #666;
+    font-size: 1.05em;
+}
+
+/* --- Stats Section --- */
+.stats-section {
+    background: linear-gradient(rgba(52, 152, 219, 0.9), rgba(52, 152, 219, 0.9)), url('https://via.placeholder.com/1920x400/2c3e50/ecf0f1?text=EV+Cityscape') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 70px 0;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.2); /* Inner shadow for depth */
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.stat-item {
+    flex-basis: 280px; /* Slightly larger base for stats */
+    padding: 20px;
+    background-color: rgba(255,255,255,0.1); /* Subtle background for each stat */
+    border-radius: 10px;
+}
+
+.stat-number {
+    font-size: 4.5em; /* Larger numbers */
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+    color: #a2e0ff; /* Lighter blue for numbers */
+}
+
+.stat-item p {
+    font-size: 1.3em; /* Larger text */
+    opacity: 0.95;
+}
+
+
+/* --- Footer Top Info Bar --- */
+.footer-top-info {
+    background-color: #0d1e37; /* Dark blue background */
+    color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 1em;
+}
+
+.footer-top-info p {
+    margin: 0; /* Remove default paragraph margin */
+}
+
+.footer-top-info .info-link {
+    color: #6daee7; /* Light blue link color */
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.footer-top-info .info-link:hover {
+    color: #a0d0f7; /* Lighter blue on hover */
+}
+
+/* --- Footer Collapsible Section --- */
+.footer-collapsible-section {
+    background-color: #1a2a47; /* Slightly lighter dark blue */
+    padding: 25px 0; /* Vertical padding */
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Subtle separator */
+}
+
+.collapsible-item {
+    width: 100%;
+    margin: 0 auto;
+    color: #fff;
+    cursor: pointer;
+}
+
+.collapsible-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em; /* Larger text for the summary */
+    font-weight: 600;
+    padding: 10px 0;
+    list-style: none; /* Hide default triangle/arrow */
+}
+
+/* Custom icon for the collapsible summary */
+.collapsible-summary::marker, /* For better browser compatibility with ::marker */
+.collapsible-summary::-webkit-details-marker { /* For Webkit browsers */
+    display: none;
+}
+
+.collapsible-summary .collapsible-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>'); /* Down arrow SVG */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate icon when details is open */
+.collapsible-item[open] .collapsible-summary .collapsible-icon {
+    transform: rotate(180deg); /* Up arrow when open */
+}
+
+.collapsible-content {
+    font-size: 0.95em;
+    line-height: 1.7;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    color: #c9d6e4; /* Lighter text for content */
+}
+
+.collapsible-content p {
+    margin-bottom: 10px;
+}
+
+.collapsible-content .read-more-link {
+    color: #6daee7; /* Link color */
+    text-decoration: underline;
+    font-weight: 500;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.collapsible-content .read-more-link:hover {
+    color: #a0d0f7;
+}
+
+/* --- Main Footer Content --- */
+.footer-main-content {
+    background-color: #10203f; /* Darkest blue for the main footer */
+    color: #fff;
+    padding: 60px 0 30px; /* Top padding, bottom padding for copyright */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr; /* Adjust column widths as needed */
+    gap: 40px; /* Space between columns */
+    padding-bottom: 40px; /* Space before copyright line */
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator line */
+}
+
+.footer-brand-subscribe .footer-logo {
+    font-size: 2.5em; /* Larger logo text */
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.subscribe-heading {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.subscribe-text {
+    font-size: 0.9em;
+    color: #c9d6e4;
+    margin-bottom: 20px;
+}
+
+.subscribe-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.email-input {
+    flex-grow: 1; /* Allows input to take available space */
+    padding: 10px 15px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2a3a5a; /* Darker input background */
+    color: #fff;
+    font-size: 0.95em;
+    outline: none; /* Remove default focus outline */
+}
+
+.email-input::placeholder {
+    color: #999;
+}
+
+.email-input:focus {
+    border-color: #6daee7; /* Highlight border on focus */
+}
+
+.subscribe-button {
+    background-color: #3498db; /* Blue button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-button:hover {
+    background-color: #2980b9;
+}
+
+.footer-nav-links ul {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Space between links */
+}
+
+.footer-nav-links a {
+    color: #c9d6e4;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.footer-nav-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-social-app {
+    text-align: right; /* Align social/app section to the right */
+}
+
+.social-heading {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.accessibility-link {
+    color: #c9d6e4;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    display: block; /* Make it block to take its own line */
+    transition: color 0.3s ease;
+}
+
+.accessibility-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    display: flex; /* Use flexbox for social icons */
+    justify-content: flex-end; /* Align right */
+    gap: 15px; /* Space between icons */
+}
+
+.social-icons a {
+    color: #fff; /* White icon color */
+    font-size: 1.5em; /* Icon size */
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #6daee7; /* Light blue on hover */
+}
+
+.app-badges {
+    display: flex;
+    justify-content: flex-end; /* Align right */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.app-badges img {
+    height: 40px; /* Fixed height for consistent badge size */
+    width: auto;
+    transition: transform 0.2s ease;
+}
+
+.app-badges img:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.footer-bottom-text {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 0.85em;
+    color: #889aad; /* Lighter gray for copyright */
+    margin: 0;
+}
+
+/* GOV.UK inspired link panel and heading styles */
+.govuk-link-panel__link {
+    border-left: 8px solid #1d70b8;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.govuk-link-panel__link:hover, .govuk-link-panel__link:focus {
+    border-color: #003078;
+    box-shadow: 0 2px 8px rgba(29,112,184,0.12);
+    background: #f3f2f1;
+    text-decoration: none;
+}
+.govuk-heading-xl {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1d70b8;
+    margin-bottom: 1.5rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+.govuk-heading-l {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #003078;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+.govuk-heading-m {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1d70b8;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+.govuk-link {
+    color: #1d70b8;
+    text-decoration: underline;
+    font-weight: 500;
+}
+.govuk-link:hover, .govuk-link:focus {
+    color: #003078;
+    text-decoration: underline;
+}
+.govuk-inset-text {
+    border-left: 6px solid #b1b4b6;
+    background: #f3f2f1;
+    padding: 1.5rem 1rem;
+}
+.govuk-breadcrumbs {
+    font-size: 1rem;
+    color: #505a5f;
+}
+.govuk-breadcrumbs__list {
+    gap: 0.5rem;
+}
+.govuk-breadcrumbs__list-item:not(:last-child)::after {
+    content: "/";
+    margin: 0 0.5rem;
+    color: #b1b4b6;
+}
+.govuk-footer {
+    background: #222;
+    color: #fff;
+    font-size: 1rem;
+    border-top: 4px solid #1d70b8;
+}
+.govuk-footer a {
+    color: #fff;
+    text-decoration: underline;
+}
+.govuk-footer a:hover, .govuk-footer a:focus {
+    color: #b1b4b6;
+}
+.govuk-width-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        text-align: center; /* Center content when stacked */
+    }
+
+    .footer-brand-subscribe,
+    .footer-nav-links,
+    .footer-social-app {
+        text-align: center; /* Ensure all sections are centered */
+    }
+
+    .subscribe-form {
+        justify-content: center; /* Center the subscribe form */
+    }
+
+    .social-icons, .app-badges {
+        justify-content: center; /* Center social icons and app badges */
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-top-info {
+        font-size: 0.9em;
+        padding: 12px 0;
+    }
+    .footer-collapsible-section {
+        padding: 20px 0;
+    }
+    .collapsible-summary {
+        font-size: 1.1em;
+        padding: 8px 0;
+    }
+    .footer-main-content {
+        padding: 40px 0 20px;
+    }
+    .footer-grid {
+        gap: 30px;
+        padding-bottom: 30px;
+    }
+    .subscribe-form {
+        flex-direction: column; /* Stack input and button vertically */
+        align-items: center;
+    }
+    .email-input {
+        width: 100%; /* Full width when stacked */
+        max-width: 300px; /* Limit max width */
+    }
+    .subscribe-button {
+        width: 100%;
+        max-width: 300px;
+    }
+    .footer-nav-links ul {
+        gap: 8px;
+    }
+    .social-icons a {
+        font-size: 1.3em;
+    }
+    .app-badges img {
+        height: 35px;
+    }
+    .copyright {
+        font-size: 0.8em;
+    }
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (max-width: 992px) { /* Adjust breakpoint for tablets */
+    .hero-content h1 {
+        font-size: 3.2em;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+    }
+    h2 {
+        font-size: 2.5em;
+    }
+    .about-section .content-grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .main-header .main-nav.active {
+        display: flex;
+    }
+
+    .main-header .cta-button {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-section {
+        padding: 80px 20px;
+        min-height: 450px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    h2 {
+        font-size: 2.2em;
+        margin-bottom: 50px;
+    }
+
+    .about-section .content-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .about-section .image-content {
+        order: -1; /* Move image above text on mobile */
+    }
+
+    .charging-section .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-content {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 50px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2em;
+    }
+
+    .section {
+        padding: 30px 0;
+    }
+
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+
+    .cta-button, .primary-cta {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .stat-number {
+        font-size: 3.5em;
+    }
+
+    .stat-item p {
+        font-size: 1.1em;
+    }
+}

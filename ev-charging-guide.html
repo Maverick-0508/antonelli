@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Charging Guide | TerraCharge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo d-flex align-items-center"><img src="images/TerraCharge-logo.png" alt="TerraCharge Logo" class="logo-img me-2"> <span class="fw-bold terracharge-brand text-dark" style="font-size:1.7rem;">TerraCharge</span></a>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero-banner position-relative text-white mb-5 rounded shadow-lg overflow-hidden">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="display-4 fw-bold mb-3">EV Charging Guide <span class="badge bg-success fs-5 align-middle ms-2">2025</span></h1>
+                        <p class="lead mb-0">Understand the different charging options, speeds, and tips for efficient charging.</p>
+                    </div>
+                    <div class="col-md-4 d-none d-md-block text-end">
+                        <img src="images/ev-charging.png" alt="EV Charging" class="img-fluid hero-img">
+                    </div>
+                </div>
+            </div>
+            <div class="hero-accent position-absolute top-0 end-0 h-100"></div>
+        </section>
+        <section class="section">
+            <div class="container govuk-width-container">
+                <div class="govuk-inset-text bg-light p-3 rounded mb-4">
+                    <strong>Key points:</strong> Level 1, Level 2, and DC Fast Charging each offer different speeds. Most daily charging is done at home, but public networks are growing.
+                </div>
+
+                <!-- Charging Comparison Table -->
+                <div class="table-responsive mb-4">
+                    <table class="table table-bordered table-striped align-middle bg-white">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Charger Type</th>
+                                <th>Speed</th>
+                                <th>Connector</th>
+                                <th>Where Used</th>
+                                <th>Best For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Level 1</strong></td>
+                                <td>3–5 miles/hour<br><small>(8–20 hours for full charge)</small></td>
+                                <td>Standard 3-pin plug (UK/US)</td>
+                                <td>Home (regular outlet)</td>
+                                <td>Overnight charging, low daily mileage</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Level 2</strong></td>
+                                <td>15–30 miles/hour<br><small>(4–8 hours for full charge)</small></td>
+                                <td>Type 2 (UK/EU), J1772 (US)</td>
+                                <td>Home (dedicated unit), public stations</td>
+                                <td>Faster home charging, most public charging</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DC Fast Charging</strong></td>
+                                <td>100–300+ miles/hour<br><small>(20–60 min for 80%)</small></td>
+                                <td>CCS, CHAdeMO, Tesla Supercharger</td>
+                                <td>Public rapid charging stations</td>
+                                <td>Long trips, quick top-ups</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Step-by-step Cards -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="govuk-heading-m mb-3">How to Charge at Home</h3>
+                                <ol class="mb-0 ps-3">
+                                    <li>Plug into a standard outlet (Level 1) or install a dedicated wallbox (Level 2).</li>
+                                    <li>Charge overnight for convenience and lower electricity rates.</li>
+                                    <li>Use a timer or app to schedule charging if available.</li>
+                                    <li>Keep battery between 20–80% for best health.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="govuk-heading-m mb-3">How to Use Public Chargers</h3>
+                                <ol class="mb-0 ps-3">
+                                    <li>Find a charger using apps (Zap-Map, PlugShare, Google Maps).</li>
+                                    <li>Check connector type and payment method.</li>
+                                    <li>Plug in, follow on-screen instructions, and monitor charging.</li>
+                                    <li>Unplug and move your car when finished to free the space.</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips List -->
+                <div class="alert alert-info mb-4">
+                    <strong>Charging Tips:</strong>
+                    <ul class="mb-0 ps-3">
+                        <li>Precondition your car (heat/cool) while plugged in to save battery.</li>
+                        <li>Fast charging is convenient but can accelerate battery wear if used exclusively.</li>
+                        <li>Public charging costs vary—check rates before plugging in.</li>
+                        <li>Always check your car’s manual for charging recommendations.</li>
+                    </ul>
+                </div>
+
+                <!-- FAQ Accordion -->
+                <div class="accordion mb-4" id="chargingFAQ">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                                Can I charge my EV in the rain?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse" aria-labelledby="faq1-heading" data-bs-parent="#chargingFAQ">
+                            <div class="accordion-body">
+                                Yes! EV charging equipment is designed to be safe in all weather conditions. Just avoid using damaged cables or connectors.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                                How much does public charging cost?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-heading" data-bs-parent="#chargingFAQ">
+                            <div class="accordion-body">
+                                Costs vary by provider and speed. Home charging is usually cheapest; public rapid charging can be 2–4x more expensive per kWh.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                                Will fast charging damage my battery?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-heading" data-bs-parent="#chargingFAQ">
+                            <div class="accordion-body">
+                                Occasional fast charging is fine, but frequent use can accelerate battery wear. Use Level 2 for daily charging when possible.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq4-heading">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                                Do I need a special charger at home?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-heading" data-bs-parent="#chargingFAQ">
+                            <div class="accordion-body">
+                                You can use a regular outlet (Level 1), but a dedicated wallbox (Level 2) is much faster and more convenient for most drivers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="electric-cars.html" class="govuk-back-link">&larr; Back to All About Electric Cars</a>
+            </div>
+        </section>
+        <div class="row my-5">
+            <div class="col-md-4">
+                <a href="ev-battery-basics.html" class="govuk-link-panel__link d-block p-3 bg-white border rounded shadow-sm h-100 text-decoration-none">
+                    <h3 class="govuk-heading-m mb-2">EV Battery Basics</h3>
+                    <p class="mb-0 text-secondary">Types, care, and lifespan of EV batteries.</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="ev-charging-guide.html" class="govuk-link-panel__link d-block p-3 bg-white border rounded shadow-sm h-100 text-decoration-none">
+                    <h3 class="govuk-heading-m mb-2">EV Charging Guide</h3>
+                    <p class="mb-0 text-secondary">Charging options, speeds, and tips.</p>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="ev-incentives.html" class="govuk-link-panel__link d-block p-3 bg-white border rounded shadow-sm h-100 text-decoration-none">
+                    <h3 class="govuk-heading-m mb-2">EV Incentives</h3>
+                    <p class="mb-0 text-secondary">Tax credits, grants, and rebates.</p>
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer class="my govuk-footermt-5 pt-4 pb-2 bg-dark text-light">
+        <div class="container footer-content d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-0">&copy; 2025 TerraCharge. All rights reserved.</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="index.html" class="text-light">Home</a></li>
+                <li class="list-inline-item"><a href="support.html" class="text-light">Support</a></li>
+                <li class="list-inline-item"><a href="faq.html" class="text-light">FAQ</a></li>
+                <li class="list-inline-item"><a href="blog.html" class="text-light">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
