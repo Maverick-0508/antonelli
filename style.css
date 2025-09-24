@@ -130,7 +130,7 @@
 /* --- EV Incentives Hero Banner Styles --- */
 .hero-banner {
     background: linear-gradient(90deg, #0a3d62 60%, #38ada9 100%);
-    min-height: 260px;
+    min-height: 240px;
     display: flex;
     align-items: center;
     position: relative;
@@ -139,13 +139,21 @@
     border-radius: 1rem;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
     overflow: hidden;
+    padding: 2.5rem 0;
 }
 .hero-banner .container {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 .hero-banner .display-4 {
     letter-spacing: 1px;
+}
+.hero-banner .lead {
+    color: rgba(255,255,255,0.92);
+    font-size: 1.05rem;
+}
+.hero-banner .primary-hero-cta {
+    margin-top: 1rem;
 }
 .hero-img {
     max-height: 160px;
@@ -230,8 +238,8 @@ ul {
 }
 
 .logo {
-    display: flex
-    align-centre= block center; /*vertically center the logo and text */
+    display: flex;
+    align-items: center; /* vertically center the logo and text */
 }
 
 .logo-img {
@@ -950,4 +958,15 @@ h2::after { /* Simple underline effect for headings */
     .stat-item p {
         font-size: 1.1em;
     }
+}
+.terracharge-brand,
+.terracharge-logo-text {
+    font-size: 1.7rem; /* centralised logo font-size */
+    color: #111;
+    line-height: 1;
+}
+
+.small-hero-img {
+    max-height: 120px;
+    height: auto;
 }

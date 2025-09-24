@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Community Stories | TerraCharge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo d-flex align-items-center"><img src="images/TerraCharge-logo.png" alt="TerraCharge Logo" class="logo-img me-2"> <span class="fw-bold terracharge-brand text-dark">TerraCharge</span></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <section class="hero-banner position-relative text-white mb-5 rounded shadow-lg overflow-hidden">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="display-4 fw-bold mb-3">Community Stories <span class="badge bg-success fs-5 align-middle ms-2">2025</span></h1>
+                        <p class="lead mb-0">Share your EV journey and read real owner experiences — tips, challenges, and triumphs from the community.</p>
+                        <div>
+                            <a class="btn btn-light primary-hero-cta" href="blog.html" role="button">Read Our Blog</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-end d-none d-md-block">
+                        <img src="images/community-hero.png" alt="Community" class="img-fluid rounded shadow-sm small-hero-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="hero-accent position-absolute top-0 end-0 h-100"></div>
+        </section>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h2 class="h5">Share Your Story</h2>
+                            <form id="storyForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input id="name" name="name" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="location" class="form-label">Location (optional)</label>
+                                    <input id="location" name="location" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="vehicle" class="form-label">Vehicle (make/model)</label>
+                                    <input id="vehicle" name="vehicle" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="story" class="form-label">Your Story</label>
+                                    <textarea id="story" name="story" rows="5" class="form-control" required></textarea>
+                                </div>
+                                <div class="mb-3 text-end">
+                                    <button type="submit" class="btn btn-primary">Submit Story</button>
+                                </div>
+                            </form>
+                            <div id="formFeedback" class="small text-success" role="status" aria-live="polite"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <h2 class="h5 mb-3">Latest Stories</h2>
+                    <div id="storiesList" class="row g-3">
+                        <!-- Stories appear here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer govuk-footer mt-5 pt-4 pb-2 bg-dark text-light">
+        <div class="container footer-content d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-0">&copy; 2025 TerraCharge. All rights reserved.</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="index.html" class="text-light">Home</a></li>
+                <li class="list-inline-item"><a href="support.html" class="text-light">Support</a></li>
+                <li class="list-inline-item"><a href="faq.html" class="text-light">FAQ</a></li>
+                <li class="list-inline-item"><a href="blog.html" class="text-light">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+    // Simple client-side storage for community stories using localStorage
+    const form = document.getElementById('storyForm');
+    const storiesList = document.getElementById('storiesList');
+    const feedback = document.getElementById('formFeedback');
+
+    function loadStories() {
+        const raw = localStorage.getItem('terra_stories');
+        return raw ? JSON.parse(raw) : [];
+    }
+
+    function saveStories(stories) {
+        localStorage.setItem('terra_stories', JSON.stringify(stories));
+    }
+
+    function renderStories() {
+        const stories = loadStories();
+        storiesList.innerHTML = '';
+        if (!stories.length) {
+            storiesList.innerHTML = '<div class="col-12"><p class="text-muted">No stories yet — be the first to share!</p></div>';
+            return;
+        }
+        stories.slice().reverse().forEach(s => {
+            const col = document.createElement('div');
+            col.className = 'col-12';
+            col.innerHTML = `
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h6 mb-1">${escapeHtml(s.vehicle)} <small class="text-muted">by ${escapeHtml(s.name)}${s.location? ' — ' + escapeHtml(s.location): ''}</small></h3>
+                        <p class="mb-0">${escapeHtml(s.story)}</p>
+                    </div>
+                </div>`;
+            storiesList.appendChild(col);
+        });
+    }
+
+    function escapeHtml(text) {
+        return text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const story = {
+            name: data.get('name').trim(),
+            location: data.get('location').trim(),
+            vehicle: data.get('vehicle').trim(),
+            story: data.get('story').trim(),
+            createdAt: Date.now()
+        };
+        if (!story.name || !story.vehicle || !story.story) {
+            feedback.textContent = 'Please complete required fields.';
+            feedback.classList.remove('text-success');
+            feedback.classList.add('text-danger');
+            return;
+        }
+        const stories = loadStories();
+        stories.push(story);
+        saveStories(stories);
+        renderStories();
+        form.reset();
+        feedback.textContent = 'Thanks — your story was submitted!';
+        feedback.classList.remove('text-danger');
+        feedback.classList.add('text-success');
+        setTimeout(() => feedback.textContent = '', 4000);
+    });
+
+    // Initial render
+    renderStories();
+    </script>
+</body>
+</html>

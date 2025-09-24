@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EV Charging Guide | TerraCharge</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
     <header class="main-header">
         <div class="container header-content">
-            <a href="index.html" class="logo d-flex align-items-center"><img src="images/TerraCharge-logo.png" alt="TerraCharge Logo" class="logo-img me-2"> <span class="fw-bold terracharge-brand text-dark" style="font-size:1.7rem;">TerraCharge</span></a>
+            <a href="index.html" class="logo d-flex align-items-center"><img src="images/TerraCharge-logo.png" alt="TerraCharge Logo" class="logo-img me-2"> <span class="fw-bold terracharge-brand text-dark">TerraCharge</span></a>
         </div>
     </header>
     <main>
@@ -21,9 +21,15 @@
                     <div class="col-md-8">
                         <h1 class="display-4 fw-bold mb-3">EV Charging Guide <span class="badge bg-success fs-5 align-middle ms-2">2025</span></h1>
                         <p class="lead mb-0">Understand the different charging options, speeds, and tips for efficient charging.</p>
+                        <div>
+                            <a class="btn btn-light primary-hero-cta" href="level-installations.html" role="button">Home Charging & Installations</a>
+                        </div>
                     </div>
                     <div class="col-md-4 d-none d-md-block text-end">
-                        <img src="images/ev-charging.png" alt="EV Charging" class="img-fluid hero-img">
+                        <picture>
+                            <source type="image/webp" srcset="images/ev-charging.webp">
+                            <img src="images/ev-charging.png" alt="EV Charging" class="img-fluid hero-img small-hero-img" loading="lazy" decoding="async">
+                        </picture>
                     </div>
                 </div>
             </div>
