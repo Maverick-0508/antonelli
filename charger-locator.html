@@ -11,14 +11,29 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         #chargerMap { height: 500px; width: 100%; border-radius: 0.75rem; z-index: 1; }
-        .leaflet-popup-content { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; }
+        .leaflet-popup-content { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; max-width: 280px; }
         .leaflet-popup-content strong { color: #0a3d62; }
         .charger-sidebar { max-height: 500px; overflow-y: auto; }
         .charger-list-item { border-left: 4px solid #38ada9; transition: background 0.2s; cursor: pointer; }
         .charger-list-item:hover, .charger-list-item.active { background: #eafaf7; }
         .charger-status { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
         .charger-status.operational { background: #27ae60; }
+        .charger-status.planned { background: #3498db; }
         .charger-status.unknown { background: #f39c12; }
+        .charger-status.closed { background: #e74c3c; }
+        .charger-badge { display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; margin: 2px 2px 0 0; }
+        .charger-badge.connector { background: #eafaf7; color: #27ae60; border: 1px solid #27ae60; }
+        .charger-badge.power { background: #ebf5fb; color: #2980b9; border: 1px solid #2980b9; }
+        .charger-badge.level { background: #fef9e7; color: #d4a017; border: 1px solid #d4a017; }
+        .charger-meta { font-size: 0.8rem; color: #6c757d; margin-top: 4px; }
+        .popup-status { font-weight: 600; margin-top: 6px; }
+        .popup-status.operational { color: #27ae60; }
+        .popup-status.planned { color: #3498db; }
+        .popup-status.unknown { color: #f39c12; }
+        .popup-status.closed { color: #e74c3c; }
+        .filter-bar { background: #f8f9fa; border-radius: 0.5rem; padding: 12px 16px; margin-bottom: 16px; }
+        .filter-bar select { font-size: 0.85rem; }
+        .station-count { font-size: 0.85rem; color: #6c757d; }
     </style>
 </head>
 <body>
@@ -86,7 +101,20 @@
                     <div class="col-lg-4">
                         <div class="card border-0 shadow-sm">
                             <div class="card-body">
-                                <h2 class="h5 fw-bold mb-3">Nearby Chargers</h2>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <h2 class="h5 fw-bold mb-0">Charging Stations</h2>
+                                    <span id="stationCount" class="station-count"></span>
+                                </div>
+                                <div class="filter-bar mb-3">
+                                    <label class="form-label fw-semibold mb-1" style="font-size:0.8rem;">Filter by status</label>
+                                    <select id="statusFilter" class="form-select form-select-sm">
+                                        <option value="all">All statuses</option>
+                                        <option value="operational">Operational</option>
+                                        <option value="planned">Planned / Coming Soon</option>
+                                        <option value="unknown">Unknown</option>
+                                        <option value="closed">Closed / Out of Service</option>
+                                    </select>
+                                </div>
                                 <div id="chargerList" class="charger-sidebar">
                                     <p class="text-muted">Loading...</p>
                                 </div>
@@ -123,64 +151,168 @@
         var markerGroup = L.layerGroup().addTo(map);
         var chargerList = document.getElementById('chargerList');
         var mapStatus = document.getElementById('mapStatus');
+        var stationCountEl = document.getElementById('stationCount');
+        var statusFilter = document.getElementById('statusFilter');
         var allMarkers = [];
+        var allStations = [];
+
+        function getConnectors(poi) {
+            if (!poi.Connections || !poi.Connections.length) return [];
+            return poi.Connections.map(function (c) {
+                return {
+                    type: c.ConnectionType ? c.ConnectionType.Title : null,
+                    level: c.Level ? c.Level.Title : null,
+                    power: c.PowerKW || null,
+                    amps: c.Amps || null,
+                    voltage: c.Voltage || null
+                };
+            }).filter(function (c) { return c.type || c.power; });
+        }
+
+        function getStatus(poi) {
+            var s = poi.StatusType ? poi.StatusType.Title : 'Unknown';
+            return s;
+        }
+
+        function getStatusClass(status) {
+            var l = status.toLowerCase();
+            if (l.indexOf('operational') >= 0) return 'operational';
+            if (l.indexOf('plan') >= 0 || l.indexOf('coming') >= 0) return 'planned';
+            if (l.indexOf('closed') >= 0 || l.indexOf('out of') >= 0 || l.indexOf('decommission') >= 0) return 'closed';
+            return 'unknown';
+        }
+
+        function buildPopup(name, addr, town, operator, status, statusClass, connectors) {
+            var html = '<strong>' + name + '</strong><br>';
+            if (addr || town) html += '<small>' + (addr || '') + (town ? ', ' + town : '') + '</small><br>';
+            if (operator && operator !== 'Unknown') html += '<em>' + operator + '</em><br>';
+            if (connectors.length) {
+                connectors.forEach(function (c) {
+                    var label = '';
+                    if (c.level) label += c.level;
+                    if (c.power) label += (label ? ' · ' : '') + c.power + ' kW';
+                    if (c.type) label += (label ? ' · ' : '') + c.type;
+                    if (!label) label = 'Connector';
+                    html += '<span class="charger-badge connector">' + label + '</span> ';
+                });
+                html += '<br>';
+            }
+            html += '<div class="popup-status ' + statusClass + '">' + status + '</div>';
+            return html;
+        }
+
+        function buildListItem(name, addr, power, status, statusClass, connectors, idx) {
+            var connectorLabels = connectors.map(function (c) {
+                var s = '';
+                if (c.power) s += c.power + ' kW';
+                if (c.type) s += (s ? ' ' : '') + c.type;
+                return s;
+            }).filter(Boolean).slice(0, 3);
+
+            var html = '<div class="charger-list-item p-2 mb-2 rounded" data-index="' + idx + '" data-status="' + statusClass + '">' +
+                '<span class="charger-status ' + statusClass + '"></span>' +
+                '<strong>' + name + '</strong><br>';
+            if (addr) html += '<small class="text-muted">' + addr + '</small><br>';
+            if (connectorLabels.length) {
+                connectorLabels.forEach(function (l) {
+                    html += '<span class="charger-badge connector">' + l + '</span> ';
+                });
+                html += '<br>';
+            }
+            html += '<small class="text-muted">' + status + '</small>' +
+                '</div>';
+            return html;
+        }
+
+        function renderList(filter) {
+            var filtered = allStations;
+            if (filter && filter !== 'all') {
+                filtered = allStations.filter(function (s) { return s.statusClass === filter; });
+            }
+            stationCountEl.textContent = filtered.length + ' of ' + allStations.length;
+            if (!filtered.length) {
+                chargerList.innerHTML = '<p class="text-muted">No stations match this filter.</p>';
+                return;
+            }
+            var html = '';
+            filtered.forEach(function (s) {
+                html += buildListItem(s.name, s.addr, s.power, s.status, s.statusClass, s.connectors, s.index);
+            });
+            chargerList.innerHTML = html;
+
+            var items = chargerList.querySelectorAll('.charger-list-item');
+            items.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    var idx = parseInt(item.getAttribute('data-index'), 10);
+                    if (allMarkers[idx]) {
+                        map.setView(allMarkers[idx].getLatLng(), 14);
+                        allMarkers[idx].openPopup();
+                        items.forEach(function (el) { el.classList.remove('active'); });
+                        item.classList.add('active');
+                    }
+                });
+            });
+        }
 
         function loadChargers(lat, lng) {
-            mapStatus.textContent = 'Loading chargers...';
+            mapStatus.textContent = 'Loading chargers from Open Charge Map...';
             chargerList.innerHTML = '<p class="text-muted">Loading...</p>';
+            stationCountEl.textContent = '';
             markerGroup.clearLayers();
             allMarkers = [];
+            allStations = [];
 
-            var url = 'https://api.openchargemap.io/v3/poi/?output=json&countrycode=KE&latitude=' + lat + '&longitude=' + lng + '&distance=100&distanceunit=Miles&maxresults=100&compact=true&verbose=false&key=';
+            var url = 'https://api.openchargemap.io/v3/poi/?output=json&countrycode=KE&latitude=' + lat + '&longitude=' + lng + '&distance=200&distanceunit=Miles&maxresults=200&compact=false&verbose=false&key=';
             fetch(url)
                 .then(function (r) { return r.json(); })
                 .then(function (data) {
-                    mapStatus.textContent = data.length + ' chargers found within 100 miles.';
                     if (!data.length) {
-                        chargerList.innerHTML = '<p class="text-muted">No chargers found nearby. Try a different location.</p>';
+                        mapStatus.textContent = 'No chargers found in Kenya.';
+                        chargerList.innerHTML = '<p class="text-muted">No chargers found. Try expanding the search area.</p>';
                         return;
                     }
-                    var html = '';
+
                     data.forEach(function (poi, i) {
-                        var lat2 = poi.AddressInfo ? poi.AddressInfo.Latitude : null;
-                        var lng2 = poi.AddressInfo ? poi.AddressInfo.Longitude : null;
-                        if (!lat2 || !lng2) return;
+                        var info = poi.AddressInfo || {};
+                        if (!info.Latitude || !info.Longitude) return;
 
-                        var name = poi.AddressInfo.Title || 'Unknown Station';
-                        var addr = poi.AddressInfo.AddressLine1 || '';
+                        var name = info.Title || 'Unknown Station';
+                        var addr = info.AddressLine1 || '';
+                        var town = info.Town || '';
                         var operator = poi.OperatorInfo ? poi.OperatorInfo.Title : 'Unknown';
-                        var status = poi.StatusType ? poi.StatusType.Title : 'Unknown';
-                        var statusClass = status.toLowerCase().indexOf('operational') >= 0 ? 'operational' : 'unknown';
-                        var power = poi.Connections && poi.Connections[0] ? (poi.Connections[0].PowerKW || '?') + ' kW' : 'N/A';
+                        var status = getStatus(poi);
+                        var statusClass = getStatusClass(status);
+                        var connectors = getConnectors(poi);
+                        var power = connectors.length && connectors[0].power ? connectors[0].power + ' kW' : 'N/A';
 
-                        var marker = L.marker([lat2, lng2]).addTo(markerGroup);
-                        marker.bindPopup('<strong>' + name + '</strong><br>' + addr + '<br><em>' + operator + '</em><br>Power: ' + power + '<br>Status: ' + status);
+                        var marker = L.marker([info.Latitude, info.Longitude]).addTo(markerGroup);
+                        marker.bindPopup(buildPopup(name, addr, town, operator, status, statusClass, connectors));
                         allMarkers.push(marker);
 
-                        html += '<div class="charger-list-item p-2 mb-2 rounded" data-index="' + i + '">' +
-                            '<span class="charger-status ' + statusClass + '"></span>' +
-                            '<strong>' + name + '</strong><br>' +
-                            '<small class="text-muted">' + addr + ' — ' + power + '</small>' +
-                            '</div>';
-                    });
-                    chargerList.innerHTML = html;
-
-                    var items = chargerList.querySelectorAll('.charger-list-item');
-                    items.forEach(function (item) {
-                        item.addEventListener('click', function () {
-                            var idx = parseInt(item.getAttribute('data-index'), 10);
-                            map.setView(allMarkers[idx].getLatLng(), 14);
-                            allMarkers[idx].openPopup();
-                            items.forEach(function (el) { el.classList.remove('active'); });
-                            item.classList.add('active');
+                        allStations.push({
+                            name: name,
+                            addr: addr || town,
+                            operator: operator,
+                            power: power,
+                            status: status,
+                            statusClass: statusClass,
+                            connectors: connectors,
+                            index: allStations.length
                         });
                     });
+
+                    mapStatus.textContent = allStations.length + ' charging stations found in Kenya.';
+                    renderList(statusFilter.value);
                 })
                 .catch(function () {
                     mapStatus.textContent = 'Error loading chargers. Please try again.';
-                    chargerList.innerHTML = '<p class="text-danger">Failed to load charger data.</p>';
+                    chargerList.innerHTML = '<p class="text-danger">Failed to load charger data from Open Charge Map.</p>';
                 });
         }
+
+        statusFilter.addEventListener('change', function () {
+            renderList(this.value);
+        });
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
