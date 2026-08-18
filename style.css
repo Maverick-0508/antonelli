@@ -791,6 +791,83 @@ h2::after { /* Simple underline effect for headings */
 }
 
 /* --- Responsive Design (Media Queries) --- */
+
+/* --- Modern Renewable Energy UI Components --- */
+.styled-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.styled-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+}
+.styled-list li::before {
+    content: "\f058";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+}
+
+/* Card hover lift */
+.card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1) !important;
+}
+
+/* Accordion modern styling */
+.accordion-button:not(.collapsed) {
+    background-color: #eafaf7;
+    color: #0a3d62;
+    font-weight: 600;
+}
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.2rem rgba(56,173,169,0.25);
+}
+.accordion-button::after {
+    filter: none;
+}
+
+/* Form focus ring — renewable green */
+.form-control:focus, .form-select:focus {
+    border-color: #38ada9;
+    box-shadow: 0 0 0 0.2rem rgba(56,173,169,0.25);
+}
+
+/* Section divider accent */
+.section-accent {
+    position: relative;
+}
+.section-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #27ae60, #38ada9);
+    border-radius: 2px;
+}
+
+/* Blog card image area */
+.blog-card-img {
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* Story card accent */
+.story-card {
+    border-left: 4px solid #38ada9;
+}
 @media (max-width: 992px) { /* Adjust breakpoint for tablets */
     .hero-content h1 {
         font-size: 3.2em;

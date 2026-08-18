@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ | TerraCharge</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Bootstrap 5.3.0 CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
@@ -43,15 +44,15 @@
     </div>
 </nav>
     <main>
-        <!-- Hero Banner -->
         <section class="hero-banner position-relative text-white mb-5 rounded shadow-lg overflow-hidden">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h1 class="display-4 fw-bold mb-3">Frequently Asked Questions <span class="badge bg-success fs-5 align-middle ms-2">2026</span></h1>
                         <p class="lead mb-0">Your top EV and TerraCharge questions, answered.</p>
-                        <div>
+                        <div class="d-flex gap-2 mt-3">
                             <a class="btn btn-light primary-hero-cta" href="support.html" role="button">Contact Support</a>
+                            <a class="btn btn-outline-light" href="services.html#quoteForm" role="button">Book a Service</a>
                         </div>
                     </div>
                     <div class="col-md-4 d-none d-md-block text-end">
@@ -65,82 +66,137 @@
             <div class="hero-accent position-absolute top-0 end-0 h-100"></div>
         </section>
         <section class="section">
-            <div class="container govuk-width-container">
+            <div class="container">
                 <div class="govuk-breadcrumbs mb-3">
                     <ol class="govuk-breadcrumbs__list list-unstyled d-flex flex-wrap align-items-center">
                         <li class="govuk-breadcrumbs__list-item"><a href="index.html">Home</a></li>
                         <li class="govuk-breadcrumbs__list-item">FAQ</li>
                     </ol>
                 </div>
-                <div class="accordion mb-4" id="faqAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                What is TerraCharge?
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                TerraCharge is your source for EV insights, guides, and solutions. We help you navigate the world of electric vehicles, charging, and ownership.
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="text-start mb-4" style="font-size:2rem;">General Questions</h2>
+                        <div class="accordion mb-5" id="faqGeneral">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="genOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGenOne" aria-expanded="true" aria-controls="collapseGenOne">What is TerraCharge?</button>
+                                </h2>
+                                <div id="collapseGenOne" class="accordion-collapse collapse show" data-bs-parent="#faqGeneral">
+                                    <div class="accordion-body">TerraCharge is a comprehensive EV resource platform offering insights, real-time charging data, professional installation and repair services, and educational guides to help you navigate the world of electric mobility.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="genTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGenTwo" aria-expanded="false" aria-controls="collapseGenTwo">How do I find a charging station near me?</button>
+                                </h2>
+                                <div id="collapseGenTwo" class="accordion-collapse collapse" data-bs-parent="#faqGeneral">
+                                    <div class="accordion-body">Use our <a href="charger-locator.html">Charger Locator Map</a> — it pulls live data from the Open Charge Map to show thousands of public chargers across the UK. You can filter by location and view charger types and availability.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="genThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGenThree" aria-expanded="false" aria-controls="collapseGenThree">What services does TerraCharge offer?</button>
+                                </h2>
+                                <div id="collapseGenThree" class="accordion-collapse collapse" data-bs-parent="#faqGeneral">
+                                    <div class="accordion-body">We offer professional <a href="services.html">EV services</a> including Level 1 and Level 2 home charging installation, EV diagnostics and repair, battery health assessments, and software updates. All technicians are OLEV-approved and fully insured.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="genFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGenFour" aria-expanded="false" aria-controls="collapseGenFour">How can I contact support?</button>
+                                </h2>
+                                <div id="collapseGenFour" class="accordion-collapse collapse" data-bs-parent="#faqGeneral">
+                                    <div class="accordion-body">Visit our <a href="support.html">Support page</a> to use the contact form, or email us directly at <a href="mailto:support@terracharge.com">support@terracharge.com</a>. We aim to respond within 24 hours on business days.</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                How do I find a charging station?
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Use our "Find a Charger" tool (coming soon) or check our blog for tips on locating public and home charging options.
+
+                        <h2 class="text-start mb-4" style="font-size:2rem;">Charging &amp; Installation</h2>
+                        <div class="accordion mb-5" id="faqCharging">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="chgOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChgOne" aria-expanded="false" aria-controls="collapseChgOne">What is the difference between Level 1 and Level 2 charging?</button>
+                                </h2>
+                                <div id="collapseChgOne" class="accordion-collapse collapse" data-bs-parent="#faqCharging">
+                                    <div class="accordion-body">Level 1 uses a standard 120V household outlet and adds about 3–5 miles of range per hour. Level 2 uses a dedicated 240V wallbox and adds 25–30 miles per hour — ideal for overnight home charging. See our <a href="level-installations.html">Installations page</a> for details.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="chgTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChgTwo" aria-expanded="false" aria-controls="collapseChgTwo">How much does a home charger installation cost?</button>
+                                </h2>
+                                <div id="collapseChgTwo" class="accordion-collapse collapse" data-bs-parent="#faqCharging">
+                                    <div class="accordion-body">Installation starts from £499 (charger unit excluded). This includes a free site survey, full UK electrical compliance, and a 3-year parts and labour warranty. Request a personalised quote on our <a href="services.html#quoteForm">Services page</a>.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="chgThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChgThree" aria-expanded="false" aria-controls="collapseChgThree">How long does a charger installation take?</button>
+                                </h2>
+                                <div id="collapseChgThree" class="accordion-collapse collapse" data-bs-parent="#faqCharging">
+                                    <div class="accordion-body">Most residential installations are completed within 1–2 days from start to finish. We handle everything from the initial electrical assessment to final certification.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="chgFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChgFour" aria-expanded="false" aria-controls="collapseChgFour">Can I charge my EV at public stations?</button>
+                                </h2>
+                                <div id="collapseChgFour" class="accordion-collapse collapse" data-bs-parent="#faqCharging">
+                                    <div class="accordion-body">Yes. The UK public charging network is expanding rapidly with thousands of Level 2 and DC fast chargers. Use our <a href="charger-locator.html">Charger Map</a> to find stations near you, and check our <a href="ev-charging-guide.html">Charging Guide</a> for tips on payment and connector types.</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                How can I contact support?
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Visit our <a href="support.html">Support</a> page for help and contact options, or email us at <a href="mailto:support@terracharge.com">support@terracharge.com</a>.
+
+                        <h2 class="text-start mb-4" style="font-size:2rem;">Vehicles &amp; Environment</h2>
+                        <div class="accordion mb-5" id="faqEV">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="evOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEvOne" aria-expanded="false" aria-controls="collapseEvOne">Are electric cars really better for the environment?</button>
+                                </h2>
+                                <div id="collapseEvOne" class="accordion-collapse collapse" data-bs-parent="#faqEV">
+                                    <div class="accordion-body">Yes. EVs produce zero tailpipe emissions and are up to 89% more energy efficient than combustion engines. Over their lifetime, they produce significantly less greenhouse gas — even accounting for battery manufacturing. Learn more on our <a href="electric-cars.html">All About Electric Cars</a> page.</div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                What incentives are available for EV owners?
-                            </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                The UK government offers grants for new EVs, home charger installations, and more. See our <a href="ev-incentives.html">EV Incentives</a> page for details.
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="evTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEvTwo" aria-expanded="false" aria-controls="collapseEvTwo">What incentives are available for EV owners?</button>
+                                </h2>
+                                <div id="collapseEvTwo" class="accordion-collapse collapse" data-bs-parent="#faqEV">
+                                    <div class="accordion-body">The UK government offers grants for new EVs, home charger installations, and zero-emission vehicle exemptions. Eligibility varies — see our <a href="ev-incentives.html">EV Incentives page</a> for a full breakdown of current schemes.</div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                Are electric cars really better for the environment?
-                            </button>
-                        </h2>
-                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Yes! EVs produce zero tailpipe emissions and are more energy efficient. Learn more on our <a href="electric-cars.html">All About Electric Cars</a> page.
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="evThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEvThree" aria-expanded="false" aria-controls="collapseEvThree">How long do EV batteries last?</button>
+                                </h2>
+                                <div id="collapseEvThree" class="accordion-collapse collapse" data-bs-parent="#faqEV">
+                                    <div class="accordion-body">Most EV batteries are designed to last 8–15 years. Battery degradation is gradual — most retain 80–90% capacity after 8 years. Proper charging habits and thermal management help extend lifespan. Read more in our <a href="ev-battery-basics.html">EV Battery Basics</a> guide.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="evFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEvFour" aria-expanded="false" aria-controls="collapseEvFour">Do EVs need less maintenance?</button>
+                                </h2>
+                                <div id="collapseEvFour" class="accordion-collapse collapse" data-bs-parent="#faqEV">
+                                    <div class="accordion-body">Yes. EVs have far fewer moving parts than combustion vehicles — no oil changes, no transmission fluid, fewer brake replacements (thanks to regenerative braking). The main maintenance areas are tyres, brakes, and battery health checks. We offer <a href="services.html">EV maintenance services</a> for all vehicle types.</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="alert alert-info mt-4 p-4 mb-4 bg-light rounded shadow-sm text-dark">
-                    <strong>Need more help?</strong> Visit our <a href="support.html" class="govuk-link">Support</a> page or email <a href="mailto:support@terracharge.com">support@terracharge.com</a> for personalised assistance.
-                </div>
-                <div class="p-4 mb-4 bg-primary text-white rounded shadow-sm text-center">
-                    <h3 class="mb-2"><i class="fas fa-question-circle me-2"></i>Have more questions?</h3>
-                    <p class="mb-3">Check our blog for the latest EV news, tips, and guides, or contact us directly for expert advice.</p>
-                    <a href="blog.html" class="btn btn-light btn-lg fw-bold">Visit the Blog</a>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="p-4 mb-4 bg-primary text-white rounded shadow-sm text-center">
+                            <h3 class="mb-2"><i class="fas fa-headset me-2"></i>Still have questions?</h3>
+                            <p class="mb-3">Our support team is ready to help — get in touch and we'll respond within 24 hours.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="support.html" class="btn btn-light btn-lg fw-bold">Contact Support</a>
+                                <a href="services.html#quoteForm" class="btn btn-outline-light btn-lg fw-bold">Book a Service</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -157,7 +213,7 @@
             </ul>
         </div>
     </footer>
-    <!-- Bootstrap 5.3.0 JS Bundle (includes Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6DQD1P1L1QnYg2ZlZLr52I7Di5urN6p+0p1d5Kk5j0vM" crossorigin="anonymous" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
