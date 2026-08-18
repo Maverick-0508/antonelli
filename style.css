@@ -157,6 +157,9 @@
 }
 .hero-img {
     max-height: 160px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
     filter: drop-shadow(0 4px 16px rgba(0,0,0,0.2));
 }
 .hero-accent {
@@ -182,6 +185,9 @@ body {
     line-height: 1.7; /* Slightly more line-height for readability */
     color: #2c3e50; /* Darker text for modern look */
     background-color: #f5f8fa; /* Very light, cool background */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 html {
@@ -713,8 +719,12 @@ h2::after { /* Simple underline effect for headings */
     margin: 0 auto;
 }
 
-/* --- Responsive Design (Media Queries) --- */
 @media (max-width: 992px) {
+    .container {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
     .footer-grid {
         grid-template-columns: 1fr; /* Stack columns on smaller screens */
         text-align: center; /* Center content when stacked */
