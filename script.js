@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var fastEl = document.getElementById('fastChargers');
     var opsEl = document.getElementById('networkOperators');
     if (totalEl && fastEl && opsEl) {
-        fetch('https://api.openchargemap.io/v3/poi/?output=json&countrycode=GB&latitude=54.5&longitude=-2&distance=500&distanceunit=Miles&maxresults=500&compact=true&verbose=false&key=')
+        fetch('https://api.openchargemap.io/v3/poi/?output=json&countrycode=KE&latitude=-1.286389&longitude=36.817223&distance=500&distanceunit=Miles&maxresults=500&compact=true&verbose=false&key=')
             .then(function (r) { return r.json(); })
             .then(function (data) {
                 totalEl.textContent = data.length;

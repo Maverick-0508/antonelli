@@ -61,7 +61,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h1 class="display-4 fw-bold mb-3">Charger Locator <span class="badge bg-success fs-5 align-middle ms-2">2026</span></h1>
-                        <p class="lead mb-0">Find public EV charging stations near you — live data from the Open Charge Map.</p>
+                        <p class="lead mb-0">Find EV charging stations across Kenya — live data from the Open Charge Map.</p>
                     </div>
                     <div class="col-md-4 d-none d-md-block text-end">
                         <img src="images/ev-charging.png" alt="EV Charging" class="img-fluid hero-img small-hero-img" loading="lazy">
@@ -114,7 +114,7 @@
     <script src="script.js" defer></script>
     <script>
     (function () {
-        var map = L.map('chargerMap').setView([54.5, -2], 6);
+        var map = L.map('chargerMap').setView([-1.286389, 36.817223], 7);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors',
             maxZoom: 18
@@ -131,11 +131,11 @@
             markerGroup.clearLayers();
             allMarkers = [];
 
-            var url = 'https://api.openchargemap.io/v3/poi/?output=json&countrycode=GB&latitude=' + lat + '&longitude=' + lng + '&distance=50&distanceunit=Miles&maxresults=50&compact=true&verbose=false&key=';
+            var url = 'https://api.openchargemap.io/v3/poi/?output=json&countrycode=KE&latitude=' + lat + '&longitude=' + lng + '&distance=100&distanceunit=Miles&maxresults=100&compact=true&verbose=false&key=';
             fetch(url)
                 .then(function (r) { return r.json(); })
                 .then(function (data) {
-                    mapStatus.textContent = data.length + ' chargers found within 50 miles.';
+                    mapStatus.textContent = data.length + ' chargers found within 100 miles.';
                     if (!data.length) {
                         chargerList.innerHTML = '<p class="text-muted">No chargers found nearby. Try a different location.</p>';
                         return;
@@ -188,10 +188,10 @@
                     map.setView([pos.coords.latitude, pos.coords.longitude], 11);
                     loadChargers(pos.coords.latitude, pos.coords.longitude);
                 },
-                function () { loadChargers(54.5, -2); }
+                function () { loadChargers(-1.286389, 36.817223); }
             );
         } else {
-            loadChargers(54.5, -2);
+            loadChargers(-1.286389, 36.817223);
         }
     })();
     </script>
