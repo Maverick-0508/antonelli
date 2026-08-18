@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | TerraCharge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .service-detail-card { border-left: 4px solid #38ada9; transition: transform 0.2s; }
+        .service-detail-card:hover { transform: translateY(-4px); }
+        .quote-form .form-control:focus { border-color: #38ada9; box-shadow: 0 0 0 0.2rem rgba(56,173,169,0.25); }
+        .quote-form .form-select:focus { border-color: #38ada9; box-shadow: 0 0 0 0.2rem rgba(56,173,169,0.25); }
+        .service-badge { background: #38ada9; color: #fff; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo d-flex align-items-center">
+                <img src="images/TerraCharge-logo.png" alt="TerraCharge Logo" class="logo-img me-2">
+                <span class="fw-bold terracharge-brand text-dark">TerraCharge</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="level-installations.html">Level 1 & 2 Installations</a></li>
+                    <li><a href="charger-locator.html">Charger Map</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Resources
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                            <li><a class="dropdown-item" href="support.html">Support</a></li>
+                            <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                            <li><a class="dropdown-item" href="blog.html">Blog</a></li>
+                            <li><a class="dropdown-item" href="electric-cars.html">All About Electric Cars</a></li>
+                            <li><a class="dropdown-item" href="community-stories.html">Community Stories</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <form class="site-search" role="search" aria-label="Site search" onsubmit="return handleSearch(event)">
+                <input type="search" placeholder="Search EVs, charging, tips..." aria-label="Search the site" autocomplete="off">
+                <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+            <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav" tabindex="0">☰</button>
+        </div>
+    </header>
+    <main>
+        <section class="hero-banner position-relative text-white mb-5 rounded shadow-lg overflow-hidden">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="display-4 fw-bold mb-3">Professional EV Services <span class="badge bg-success fs-5 align-middle ms-2">2026</span></h1>
+                        <p class="lead mb-0">Expert charging installation and EV repair services — certified technicians, guaranteed quality.</p>
+                        <div class="d-flex gap-2 mt-3">
+                            <a class="btn btn-light primary-hero-cta" href="#quoteForm" role="button">Request a Quote</a>
+                            <a class="btn btn-outline-light" href="charger-locator.html" role="button">Find Chargers</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-none d-md-block text-end">
+                        <img src="images/ev-charging.png" alt="EV Service" class="img-fluid hero-img small-hero-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="hero-accent position-absolute top-0 end-0 h-100"></div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="govuk-breadcrumbs mb-3">
+                    <ol class="govuk-breadcrumbs__list list-unstyled d-flex flex-wrap align-items-center">
+                        <li class="govuk-breadcrumbs__list-item"><a href="index.html">Home</a></li>
+                        <li class="govuk-breadcrumbs__list-item">Services</li>
+                    </ol>
+                </div>
+
+                <h2 class="govuk-heading-xl mb-4">Our Services</h2>
+
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm border-0 service-detail-card">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="service-badge me-2">Installation</span>
+                                </div>
+                                <h3 class="govuk-heading-l">Home Charging Installation</h3>
+                                <p>Certified electricians specialising in Level 1 and Level 2 charging port installations for single-family homes and multi-unit dwellings.</p>
+                                <ul class="mb-3">
+                                    <li>Free site survey and electrical assessment</li>
+                                    <li>Level 1 (standard outlet) and Level 2 (dedicated wallbox) options</li>
+                                    <li>Smart charger setup with scheduling and energy monitoring</li>
+                                    <li>Full UK electrical compliance and certification</li>
+                                    <li>Aftercare support and warranty included</li>
+                                </ul>
+                                <p class="fw-bold text-success mb-3">From £499 (installation only, charger excluded)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card h-100 shadow-sm border-0 service-detail-card">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="service-badge me-2">Repair</span>
+                                </div>
+                                <h3 class="govuk-heading-l">EV Repair & Maintenance</h3>
+                                <p>Specialised diagnostics and repair for electric drivetrains, battery thermal management systems, and high-voltage components.</p>
+                                <ul class="mb-3">
+                                    <li>Battery health diagnostics and degradation analysis</li>
+                                    <li>Charging port repair and replacement</li>
+                                    <li>Electric motor and inverter servicing</li>
+                                    <li>High-voltage cable and connector inspection</li>
+                                    <li>Software updates and system calibration</li>
+                                </ul>
+                                <p class="fw-bold text-success mb-3">Diagnostics from £89</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row g-4 mb-5">
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 text-center p-4">
+                            <div class="card-body">
+                                <i class="fas fa-certificate fa-2x text-primary mb-3"></i>
+                                <h4 class="h5 fw-bold">Fully Certified</h4>
+                                <p class="text-muted mb-0">All technicians are OLEV-approved and fully insured for high-voltage EV work.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 text-center p-4">
+                            <div class="card-body">
+                                <i class="fas fa-clock fa-2x text-success mb-3"></i>
+                                <h4 class="h5 fw-bold">Same-Week Appointments</h4>
+                                <p class="text-muted mb-0">Most installations completed within 1–2 days. Repairs scheduled within the same week.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 text-center p-4">
+                            <div class="card-body">
+                                <i class="fas fa-shield-alt fa-2x text-warning mb-3"></i>
+                                <h4 class="h5 fw-bold">3-Year Warranty</h4>
+                                <p class="text-muted mb-0">All installation work backed by a 3-year parts and labour warranty for peace of mind.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="quoteForm" class="row justify-content-center mb-5">
+                    <div class="col-lg-8">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body p-4 p-md-5">
+                                <h2 class="govuk-heading-l text-center mb-4">Request a Quote</h2>
+                                <form id="serviceQuoteForm" class="quote-form">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="quoteName" class="form-label fw-bold">Full Name *</label>
+                                            <input type="text" id="quoteName" name="name" class="form-control" required autocomplete="name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="quoteEmail" class="form-label fw-bold">Email *</label>
+                                            <input type="email" id="quoteEmail" name="email" class="form-control" required autocomplete="email">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="quotePhone" class="form-label fw-bold">Phone</label>
+                                            <input type="tel" id="quotePhone" name="phone" class="form-control" autocomplete="tel">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="quotePostcode" class="form-label fw-bold">Postcode *</label>
+                                            <input type="text" id="quotePostcode" name="postcode" class="form-control" required autocomplete="postal-code">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="quoteService" class="form-label fw-bold">Service Type *</label>
+                                            <select id="quoteService" name="service" class="form-select" required>
+                                                <option value="" disabled selected>Select a service</option>
+                                                <option value="level1-install">Level 1 Charging Installation</option>
+                                                <option value="level2-install">Level 2 Charging Installation</option>
+                                                <option value="charging-repair">Charging Port Repair</option>
+                                                <option value="battery-diag">Battery Diagnostics</option>
+                                                <option value="motor-repair">Motor / Drivetrain Repair</option>
+                                                <option value="software-update">Software Update / Calibration</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="quoteVehicle" class="form-label fw-bold">Vehicle (Make/Model)</label>
+                                            <input type="text" id="quoteVehicle" name="vehicle" class="form-control" placeholder="e.g. Tesla Model 3">
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="quoteMessage" class="form-label fw-bold">Additional Details</label>
+                                            <textarea id="quoteMessage" name="message" rows="4" class="form-control" placeholder="Describe your needs, preferred dates, or any questions..."></textarea>
+                                        </div>
+                                        <div class="col-12 text-center mt-3">
+                                            <button type="submit" class="btn btn-success btn-lg px-5 fw-bold">Submit Quote Request</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div id="quoteFeedback" class="text-center mt-3" role="status" aria-live="polite"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4 mb-4 bg-light rounded shadow-sm text-center">
+                    <p class="mb-2">Need help choosing the right service?</p>
+                    <a href="support.html" class="btn btn-outline-primary">Contact Support</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer govuk-footer mt-5 pt-4 pb-2 bg-dark text-light">
+        <div class="container footer-content d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p class="mb-0">&copy; 2026 TerraCharge. All rights reserved.</p>
+            <ul class="list-inline mb-0">
+                <li class="list-inline-item"><a href="index.html" class="text-light">Home</a></li>
+                <li class="list-inline-item"><a href="services.html" class="text-light">Services</a></li>
+                <li class="list-inline-item"><a href="support.html" class="text-light">Support</a></li>
+                <li class="list-inline-item"><a href="faq.html" class="text-light">FAQ</a></li>
+                <li class="list-inline-item"><a href="blog.html" class="text-light">Blog</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoA6DQD1P1L1QnYg2ZlZLr52I7Di5urN6p+0p1d5Kk5j0vM" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+    <script>
+    document.getElementById('serviceQuoteForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var feedback = document.getElementById('quoteFeedback');
+        var data = new FormData(this);
+        var name = data.get('name').trim();
+        var email = data.get('email').trim();
+        var postcode = data.get('postcode').trim();
+        var service = data.get('service');
+        if (!name || !email || !postcode || !service) {
+            feedback.innerHTML = '<div class="alert alert-danger">Please fill in all required fields.</div>';
+            return;
+        }
+        feedback.innerHTML = '<div class="alert alert-success">Thank you, ' + name + '! Your quote request has been submitted. We\'ll contact you at ' + email + ' within 24 hours.</div>';
+        this.reset();
+        setTimeout(function() { feedback.innerHTML = ''; }, 6000);
+    });
+    </script>
+</body>
+</html>

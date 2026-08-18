@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var pages = [
             { title: 'Home', url: 'index.html', keywords: 'electric vehicle ev charging terracharge sustainable future insights gateway' },
+            { title: 'Services', url: 'services.html', keywords: 'installation repair maintenance charging port battery diagnostics motor drivetrain quote booking certified electrician' },
             { title: 'Level 1 & 2 Installations', url: 'level-installations.html', keywords: 'home charging level 1 level 2 wallbox installation electrician 240v 120v outlet' },
             { title: 'Charger Locator Map', url: 'charger-locator.html', keywords: 'charger map locator public charging station nearby open charge map' },
             { title: 'FAQ', url: 'faq.html', keywords: 'frequently asked questions support contact email help incentives environment' },
