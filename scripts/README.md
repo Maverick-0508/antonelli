@@ -1,6 +1,7 @@
 Image conversion helper scripts
 
 convert-images.ps1
+
 - Purpose: Batch-convert JPEG/PNG images in the project's `images/` folder to WebP using ImageMagick's `magick` CLI.
 - Usage:
   1. Install ImageMagick (if not installed):
@@ -12,10 +13,12 @@ convert-images.ps1
      - .\scripts\convert-images.ps1
 
 Notes:
+
 - The script will not overwrite existing .webp files; it will create .webp copies alongside originals.
 - Small logo files are converted lossless by default. You can adjust quality in the script.
 
 Next steps after conversion:
+
 - Commit the newly created .webp files to the repository if you want them served from the <picture> tags.
 - If you prefer not to commit, you can host the .webp files on a CDN and update srcset references.
 
