@@ -43,8 +43,13 @@
                 </li>
             </ul>
         </nav>
-        <a href="ev-charging-guide.html" class="cta-button" aria-label="Find a Charger">Find a Charger</a>
-        <button class="menu-toggle" aria-label="Toggle navigation" tabindex="0">☰</button>
+        <a href="charger-locator.html" class="cta-button" aria-label="Find a Charger">Find a Charger</a>
+        <form class="site-search" role="search" aria-label="Site search" onsubmit="return handleSearch(event)">
+            <input type="search" id="siteSearchInput" placeholder="Search EVs, charging, tips..." aria-label="Search the site" autocomplete="off">
+            <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+            <div id="searchResults" class="search-results-dropdown" role="listbox" aria-label="Search results"></div>
+        </form>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav" tabindex="0">☰</button>
         
     </div>
 </header>
@@ -107,6 +112,30 @@
                         <h3><span class="icon">🔋</span> Battery Care</h3>
                         <p>Understand how to optimize your EV battery's lifespan and performance for years of driving.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="live-network" class="section">
+            <div class="container">
+                <h2>Live Charging Network</h2>
+                <p class="text-center mb-4">Real-time data from the Open Charge Map — thousands of public chargers worldwide.</p>
+                <div id="networkStats" class="stats-grid mb-4">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalChargers">--</span>
+                        <p>Total Chargers (UK)</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="fastChargers">--</span>
+                        <p>Fast Chargers (50kW+)</p>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="networkOperators">--</span>
+                        <p>Network Operators</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="charger-locator.html" class="btn btn-primary btn-lg fw-bold">Open Charger Map</a>
                 </div>
             </div>
         </section>

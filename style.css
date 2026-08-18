@@ -970,3 +970,77 @@ h2::after { /* Simple underline effect for headings */
     max-height: 120px;
     height: auto;
 }
+
+/* --- Site Search Bar --- */
+.site-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.site-search input[type="search"] {
+    width: 180px;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: border-color 0.3s, width 0.3s;
+}
+
+.site-search input[type="search"]:focus {
+    border-color: #3498db;
+    width: 220px;
+}
+
+.site-search button {
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    padding: 6px 8px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.site-search button:hover {
+    color: #3498db;
+}
+
+.search-results-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    z-index: 2000;
+    max-height: 240px;
+    overflow-y: auto;
+    margin-top: 4px;
+}
+
+.search-results-dropdown.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .site-search {
+        width: 100%;
+        margin: 10px 0;
+        order: 4;
+    }
+    .site-search input[type="search"] {
+        width: 100%;
+        max-width: 300px;
+    }
+    .site-search input[type="search"]:focus {
+        width: 100%;
+    }
+}

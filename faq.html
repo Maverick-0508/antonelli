@@ -15,6 +15,7 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="level-installations.html">Level 1 & 2 Installations</a></li>
+                    <li><a href="charger-locator.html">Charger Map</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Resources
@@ -27,8 +28,13 @@
                             <li><a class="dropdown-item" href="community-stories.html">Community Stories</a></li>
                         </ul>
                     </li>
-                </ul>
-            </nav>
+                    </ul>
+                </nav>
+                <form class="site-search" role="search" aria-label="Site search" onsubmit="return handleSearch(event)">
+                    <input type="search" placeholder="Search EVs, charging, tips..." aria-label="Search the site" autocomplete="off">
+                    <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+                </form>
+                <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav" tabindex="0">☰</button>
         </div>
     </header>
     <main>
