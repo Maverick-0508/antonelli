@@ -221,66 +221,7 @@ ul {
     transform: translateY(-2px); /* Slight lift effect */
 }
 
-/* --- Header Section --- */
-.main-header {
-    background-color: #fff;
-    padding: 18px 0; /* Slightly less padding than before for a sleeker bar */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* More subtle shadow */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
 
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    display: flex;
-    align-items: center; /* vertically center the logo and text */
-}
-
-.logo-img {
-    font-weight: 700;
-    font-size: 3em; /* Slightly larger logo */
-    color: #4400aa; /* Dark logo text */
-    width: 50px; /* Set a fixed width for the logo */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 10px; /* Space between logo and text */
-    transition: color 0.3s ease; /* Smooth color transition */
-    text-transform: uppercase; /* Modern touch */
-    letter-spacing: 0.5px; /* Slight letter spacing for a modern look */
-}
-.logo:hover {
-    color: #3498db; /* Hint of color on hover */
-}
-
-.main-nav ul {
-    display: flex;
-    gap: 35px; /* More space between nav items */
-}
-
-.main-nav a {
-    color: #555;
-    font-weight: 600; /* Slightly bolder nav links */
-    font-size: 1.05em;
-    transition: color 0.3s ease;
-}
-
-.main-nav a:hover {
-    color: #3498db; /* Blue on hover */
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2.2em; /* Larger toggle icon */
-    cursor: pointer;
-    color: #2c3e50;
-}
 
 /* --- Hero Section --- */
 .hero-section {
@@ -856,32 +797,6 @@ h2::after { /* Simple underline effect for headings */
 }
 
 @media (max-width: 768px) {
-    .main-header .main-nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        padding: 20px 0;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .main-header .main-nav.active {
-        display: flex;
-    }
-
-    .main-header .cta-button {
-        display: none;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
     .hero-section {
         padding: 80px 20px;
         min-height: 450px;
@@ -959,88 +874,9 @@ h2::after { /* Simple underline effect for headings */
         font-size: 1.1em;
     }
 }
-.terracharge-brand,
-.terracharge-logo-text {
-    font-size: 1.7rem; /* centralised logo font-size */
-    color: #111;
-    line-height: 1;
-}
-
 .small-hero-img {
     max-height: 120px;
     height: auto;
 }
 
-/* --- Site Search Bar --- */
-.site-search {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 10px;
-}
-
-.site-search input[type="search"] {
-    width: 180px;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-family: 'Montserrat', sans-serif;
-    outline: none;
-    transition: border-color 0.3s, width 0.3s;
-}
-
-.site-search input[type="search"]:focus {
-    border-color: #3498db;
-    width: 220px;
-}
-
-.site-search button {
-    background: none;
-    border: none;
-    color: #555;
-    cursor: pointer;
-    padding: 6px 8px;
-    font-size: 0.9rem;
-    transition: color 0.3s;
-}
-
-.site-search button:hover {
-    color: #3498db;
-}
-
-.search-results-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 2000;
-    max-height: 240px;
-    overflow-y: auto;
-    margin-top: 4px;
-}
-
-.search-results-dropdown.active {
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .site-search {
-        width: 100%;
-        margin: 10px 0;
-        order: 4;
-    }
-    .site-search input[type="search"] {
-        width: 100%;
-        max-width: 300px;
-    }
-    .site-search input[type="search"]:focus {
-        width: 100%;
-    }
-}
+/* --- Responsive Design (Media Queries) --- */

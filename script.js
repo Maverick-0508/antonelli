@@ -1,24 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // --- Mobile menu toggle with accessibility ---
-    var menuToggle = document.querySelector('.menu-toggle');
-    var mainNav = document.querySelector('.main-nav');
-    if (menuToggle && mainNav) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.addEventListener('click', function () {
-            var expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', String(!expanded));
-            mainNav.classList.toggle('active');
-        });
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape' && mainNav.classList.contains('active')) {
-                mainNav.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.focus();
-            }
-        });
-    }
-
     // --- Stat counter animation ---
     var statNumbers = document.querySelectorAll('.stat-number');
     if (statNumbers.length) {

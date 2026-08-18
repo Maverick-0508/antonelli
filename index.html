@@ -14,27 +14,23 @@
     <meta name="keywords" content="Electric Vehicles, EV Charging, Sustainable Living, TerraCharge, Level 1 Installations, Level 2 Installations">
 </head>
 <body>
-<!-- Navbar (Transparent over hero)-->
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" class="logo">
-            <img src="images/TerraCharge-logo.png" alt="TerraCharge Logo" class="logo-img me-2"> 
-            <span class="fw-bold terracharge-brand brand-title">TerraCharge</span>
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <img src="images/TerraCharge-logo.png" alt="TerraCharge Logo" style="height: 40px;">
+            <span class="fw-bold">TerraCharge</span>
         </a>
-        <!-- Add your navbar links here if needed -->
-    </div>
-</nav>
-<header class="main-header" role="banner">
-    <div class="container header-content">
-           <nav class="main-nav" role="navigation" aria-label="Main navigation">
-            <ul>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="level-installations.html">Level 1 & 2 Installations</a></li>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="level-installations.html">Installations</a></li>
+                <li class="nav-item"><a class="nav-link" href="charger-locator.html">Charger Map</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
-                        Resources
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="resourcesDropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+                    <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="support.html">Support</a></li>
                         <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
                         <li><a class="dropdown-item" href="blog.html">Blog</a></li>
@@ -43,17 +39,14 @@
                     </ul>
                 </li>
             </ul>
-        </nav>
-        <a href="charger-locator.html" class="cta-button" aria-label="Find a Charger">Find a Charger</a>
-        <form class="site-search" role="search" aria-label="Site search" onsubmit="return handleSearch(event)">
-            <input type="search" id="siteSearchInput" placeholder="Search EVs, charging, tips..." aria-label="Search the site" autocomplete="off">
-            <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
-            <div id="searchResults" class="search-results-dropdown" role="listbox" aria-label="Search results"></div>
-        </form>
-        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav" tabindex="0">☰</button>
-        
+            <form class="d-flex me-3" role="search" aria-label="Site search" onsubmit="return handleSearch(event)">
+                <input class="form-control form-control-sm" type="search" placeholder="Search..." aria-label="Search" autocomplete="off" style="width: 180px;">
+                <button class="btn btn-outline-secondary btn-sm ms-1" type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+            <a href="services.html#quoteForm" class="btn btn-primary rounded-pill px-4 text-white">Book Installation</a>
+        </div>
     </div>
-</header>
+</nav>
 
     <main id="main-content">
         <section class="hero-banner position-relative text-white mb-5 rounded shadow-lg overflow-hidden">
